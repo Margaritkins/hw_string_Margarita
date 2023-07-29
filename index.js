@@ -7,21 +7,43 @@
 
 const vowels = ["a", "e", "i", "o", "u", "y"];
 const string = "Visual studio code";
-const stringArr = string.toLowerCase().split('');
+const stringArr = string.toLowerCase().split("");
 
+//works!
 const getVowels = (string) => {
   let vowelsInString = 0;
   for (const item of string) {
     for (const item1 of vowels) {
-      if(item === item1){
-        vowelsInString +=1
+      if (item === item1) {
+        vowelsInString += 1;
       }
     }
   }
-return vowelsInString;
+  return vowelsInString;
+};
+
+// console.log(getVowels(stringArr));
+
+
+//try to understand how .filter and callback func. is working
+const filtredvowels = stringArr.filter(getVowels)
+console.log(filtredvowels);
+
+
+//Shows without duplicates
+const getVowels1 = (string)=>{
+  let vowelsInString = 0;
+for (let index = 0; index < string.length; index++) {
+  if (string.includes(vowels[index])) {
+    vowelsInString += 1;
+  } else {
+    vowelsInString;
+  }
+}return vowelsInString
 }
 
-console.log(getVowels(string));
+
+// console.log(getVowels1(stringArr));
 
 //works!
 // let vowelsInString = 0;
@@ -35,8 +57,7 @@ console.log(getVowels(string));
 
 // console.log(vowelsInString);
 
-
-//works
+//works (bad practice, literals)
 // for (let index = 0; index < stringArr.length; index++) {
 //   checker = stringArr[index];
 
@@ -48,7 +69,6 @@ console.log(getVowels(string));
 //   }
 // }
 
-
 //not works
 // for (let index = 0; index < stringArr.length; index++) {
 //   for (let index = 0; index < vowels.length; index++) {
@@ -57,7 +77,6 @@ console.log(getVowels(string));
 // }
 //   }
 // }
-
 
 //not works
 // for (let index = 0; index < stringArr.length; index++) {
@@ -68,7 +87,7 @@ console.log(getVowels(string));
 //   else{
 //     vowelsInString;
 //   }
-//   } 
+//   }
 // }
 
 // console.log(vowelsInString);
